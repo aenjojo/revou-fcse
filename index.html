@@ -11,13 +11,15 @@
 
 		<link rel="stylesheet" href="./css/reset.css">
 		<link rel="stylesheet" href="./css/style.css">
-		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js" integrity="sha512-24XP4a9KVoIinPFUbcnjIjAjtS59PUoxQj3GNVpWc86bCqPuy3YxAcxJrxFCxXe4GHtAumCbO2Ze2bddtuxaRw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	</head>
 	<body>
 		<header class="header">
 			<div class="container">
-				<div class="logo"></div>
 				<nav class="navbar">
+					<div class="logo">Logo</div>
 					<ul class="navigation-list">
 						<li><a href="#hero">Home</a></li>
 						<li><a href="#our-package">Our Package</a></li>
@@ -27,28 +29,32 @@
 			</div>
 		</header>
 		<main class="main-content">
-			<div class="container">
-				<div class="hero">
+			<div class="hero" id="hero">
+				<div class="container">
 					<h1 class="main-title">Your Trusted Travel Agent</h1>
 					<p class="hero-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, odit?</p>
 				</div>
+			</div>
+			<div class="container">
 				<div class="about-contact">
 					<div class="about">
 						<img src="./assets/travel1.jpg" alt="A beach in Bali during dusk, with some peoples playing" class="about-img" />
-						<p class="about-caption"></p>
+						<p class="about-caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, deserunt!</p>
 						<div class="about-author">
 							<img src="./assets/avatar.jpg" alt="" class="author-img" />
-							<div class="author-name">Natsuki</div>
-							<div class="author-info">Pelajar, 17</div>
+							<div class="author-data">
+								<div class="author-name">Natsuki</div>
+								<div class="author-info">Pelajar, 17</div>
+							</div>
 						</div>
 						<hr class="border" />
 						<div class="feature">
 							<h2 class="subsection-title">Features</h2>
-							<ol class="feature-list">
-								<li>Feat 1</li>
-								<li>Feat 2</li>
-								<li>Feat 3</li>
-							</ol>
+							<div class="feature-list">
+								<div>Feat 1</div>
+								<div>Feat 2</div>
+								<div>Feat 3</div>
+							</div>
 						</div>
 					</div>
 					<div class="contact">
@@ -56,44 +62,59 @@
 						<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero, officia!</p>
 						<form action="" class="contact-form">
 							<div class="form-field">
-								<label for="name">Your name:</label>
-								<input type="text" id="name" name="name" />
+								<label for="name" class="input-label">Your name:</label>
+								<input type="text" id="name" name="name" class="input-field"
+									placeholder="First name and last name" />
 							</div>
 							<div class="form-field">
-								<label for="address">Address:</label>
-								<input type="text" id="address" name="address" />
+								<label for="address" class="input-label">Address:</label>
+								<input type="text" id="address" name="address" class="input-field"
+									placeholder="example@email.com" />
 							</div>
 							<div class="form-field">
-								<label for="interest">Interest:</label>
-								<select id="interest" name="interest">
+								<label for="interest" class="input-label">What are you interested in?</label>
+								<select id="interest" name="interest" class="input-field">
 									<option value="option0" selected disabled>Select option</option>
 									<option value="option1">Option 1</option>
 									<option value="option2">Option 2</option>
 									<option value="option3">Option 3</option>
 								</select>
 							</div>
+							<button type="submit" class="button">Send</button>
 						</form>
 					</div>
 				</div>
-				<div class="package">
-					<h2 class="section-title">Our Package</h2>
+			</div>
+			<div class="package" id="our-package">
+				<div class="package-banner">
+					<div class="container">
+						<h2 class="section-title">Our Package</h2>
+					</div>
+				</div>
+				<div class="container">
 					<div class="package-list">
 						<div class="package-item">
-							<div class="package-icon">🧡</div>
+							<div class="package-icon">
+								<i data-feather="compass"></i>
+							</div>
 							<div class="package-content">
 								<h3>Nama kota</h3>
 								<p>Tentang kota</p>
 							</div>
 						</div>
 						<div class="package-item">
-							<div class="package-icon">💛</div>
+							<div class="package-icon">
+								<i data-feather="compass"></i>
+							</div>
 							<div class="package-content">
 								<h3>Nama kota</h3>
 								<p>Tentang kota</p>
 							</div>
 						</div>
 						<div class="package-item">
-							<div class="package-icon">💚</div>
+							<div class="package-icon">
+								<i data-feather="compass"></i>
+							</div>
 							<div class="package-content">
 								<h3>Nama kota</h3>
 								<p>Tentang kota</p>
@@ -103,21 +124,27 @@
 					<hr class="border" />
 					<div class="package-list">
 						<div class="package-item">
-							<div class="package-icon">💙</div>
+							<div class="package-icon">
+								<i data-feather="star"></i>
+							</div>
 							<div class="package-content">
 								<h3>Nama kota</h3>
 								<p>Tentang kota</p>
 							</div>
 						</div>
 						<div class="package-item">
-							<div class="package-icon">💜</div>
+							<div class="package-icon">
+								<i data-feather="star"></i>
+							</div>
 							<div class="package-content">
 								<h3>Nama kota</h3>
 								<p>Tentang kota</p>
 							</div>
 						</div>
 						<div class="package-item">
-							<div class="package-icon">🤎</div>
+							<div class="package-icon">
+								<i data-feather="star"></i>
+							</div>
 							<div class="package-content">
 								<h3>Nama kota</h3>
 								<p>Tentang kota</p>
@@ -125,7 +152,9 @@
 						</div>
 					</div>
 				</div>
-				<div class="cta">
+			</div>
+			<div class="cta" id="call-us">
+				<div class="container">
 					<h2 class="section-title">Closing Headline</h2>
 					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, expedita?</p>
 					<button class="button">Call to Action</button>
@@ -134,18 +163,17 @@
 		</main>
 		<footer class="footer">
 			<div class="container">
-				<div class="logo"></div>
+				<div class="logo">Logo</div>
 				<ul class="footer-navigation">
-					<li>
-						<a href="#">Terms of Service</a>
-					</li>
-					<li>
-						<a href="#">Privacy Policy</a>
-					</li>
+					<li><a href="#">Terms of Service</a></li>
+					<li><a href="#">Privacy Policy</a></li>
 				</ul>
-				</div>
 				<div>© 2023 AenJojo</div>
 			</div>
 		</footer>
+
+		<script>
+			feather.replace();
+		</script>
 	</body>
 </html>
