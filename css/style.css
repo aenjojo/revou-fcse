@@ -28,12 +28,20 @@
 	
 	--container: calc(var(--w-12) - var(--space-6));
 
-	--primary: #9bb4ff;
-	--secondary: #0d1c2b;
+	--light-100: #eaeef7;
+	--light-200: #c8cdd6;
+	--light-300: #8c93a1;
+	--dark-100: #131c2e;
+	--dark-200: #2f3749;
+	--dark-300: #4c5361;
+	--blue-light: #8bb0ff;
+	--blue-medium: #155df7;
+	--blue-dark: #0a3591;
 
 	scroll-behavior: smooth;
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 	box-sizing: border-box;
+	background-color: var(--light-100);
 }
 
 .container {
@@ -45,9 +53,18 @@
 	padding: var(--space-4) var(--space-6);
 	text-transform: uppercase;
 	font-weight: 700;
+	border: 2px solid var(--blue-light);
+	background-color: var(--blue-medium);
+	color: var(--light-100);
+	border-radius: var(--space-1);
+}
+.button:hover {
+	background-color: var(--blue-dark);
+	color: var(--light-100);
+	cursor: pointer;
 }
 .border {
-	border-bottom: 2px solid gray;
+	border-bottom: 2px solid var(--light-300);
 	width: var(--w-2);
 }
 .main-title {
@@ -64,10 +81,10 @@
 }
 
 .header {
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid var(--dark-100);
 	position: sticky;
 	top: 0;
-	background-color: var(--primary);
+	background-color: var(--blue-medium);
 }
 .navbar {
 	display: flex;
@@ -88,14 +105,15 @@
 	background-color: transparent;
 }
 .hero {
-	height: 30vh;
+	height: auto;
 	text-align: center;
-	background-color: var(--primary);
+	background-color: var(--blue-medium);
 }
 .about-contact {
 	display: flex;
 	flex-direction: column;
 	gap: var(--space-4);
+	margin-top: var(--space-4);
 }
 .about {
 	width: var(--w-12);
@@ -108,12 +126,18 @@
 	width: 100%;
 }
 .about-caption {
-	color: gray;
+	color: var(--dark-300);
+	font-style: italic;
+	padding: 0 var(--space-6);
+}
+.about-caption::before, .about-caption::after {
+	content: '"';
 }
 .about-author {
 	display: flex;
 	flex-direction: row;
 	gap: var(--space-4);
+	padding: 0 var(--space-6);
 }
 .author-img {
 	width: calc(var(--space-6) * 2);
@@ -130,10 +154,34 @@
 	font-weight: 700;
 }
 .author-info {
-	color: gray;
+	color: var(--dark-300);
+	font-style: italic;
 }
+
+.feature-list {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-4);
+	padding: var(--space-4) 0;
+}
+.feature-item {
+	display: flex;
+	flex-direction: row;
+	gap: var(--space-4);
+	align-items: center;
+}
+.feature-icon {
+	padding: var(--space-2);
+	border: 1px solid var(--blue-light);
+	border-radius: 9999px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--blue-medium);
+}
+
 .contact {
-	background-color: lightgray;
+	background-color: var(--light-200);
 	padding: var(--space-4);
 	width: auto;
 	height: fit-content;
@@ -152,8 +200,10 @@
 }
 .input-field {
 	padding: var(--space-2);
-	border: 2px solid gray;
+	background-color: var(--light-100);
+	border: 2px solid var(--light-300);
 	border-radius: var(--space-1);
+	color: var(--dark-100);
 }
 .contact-form .button {
 	width: var(--w-12);
@@ -163,7 +213,7 @@
 }
 .package-banner {
 	padding: var(--space-6) 0;
-	background-color: gray;
+	background-color: var(--light-300);
 	text-align: center;
 }
 .package-list {
@@ -180,7 +230,8 @@
 }
 .package-icon {
 	padding: var(--space-2);
-	border: 1px solid gray;
+	color: var(--blue-medium);
+	border: 1px solid var(--blue-light);
 	border-radius: 9999px;
 	display: flex;
 	justify-content: center;
@@ -198,7 +249,7 @@
 .cta {
 	margin-top: var(--space-4);
 	padding: var(--space-6) 0;
-	border-top: 1px solid black;
+	border-top: 1px solid var(--dark-100);
 }
 .cta .container {
 	text-align: center;
@@ -212,9 +263,10 @@
 }
 
 .footer {
-	border-top: 1px solid black;
+	border-top: 1px solid var(--dark-100);
 	padding: var(--space-4);
-	background-color: var(--primary);
+	background-color: var(--dark-100);
+	color: var(--light-100);
 }
 .footer .container {
 	display: flex;
@@ -225,7 +277,17 @@
 .footer-navigation {
 	display: flex;
 	flex-direction: row;
-	gap: var(--space-2);
+	gap: var(--space-4);
+}
+
+a {
+	font-weight: 500;
+	color: var(--light-100);
+	text-decoration: none;
+}
+a:hover {
+	cursor: pointer;
+	text-decoration: underline solid var(--light-100) 2px;
 }
 
 @media only screen and (min-width: 1024px) {
