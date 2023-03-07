@@ -7,14 +7,17 @@
 		<meta http-equiv='expires' content='0'> 
 		<meta http-equiv='pragma' content='no-cache'>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="">
-		<meta name="keywords" content="">
+		<meta name="description" content="Travel with TriTravel for the best experience you will never forget">
+		<meta name="keywords" content="tritravel, travel agency, revou, fcse mini project">
 		
-		<title>Travel Agency</title>
+		<title>Home | TriTravel</title>
 
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
 		<link rel="stylesheet" href="./css/reset.css">
 		<link rel="stylesheet" href="./css/style.css">
-		<link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
+		<link rel="icon" href="./assets/favicon.png" type="image/png">
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.29.0/feather.min.js" integrity="sha512-24XP4a9KVoIinPFUbcnjIjAjtS59PUoxQj3GNVpWc86bCqPuy3YxAcxJrxFCxXe4GHtAumCbO2Ze2bddtuxaRw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 	</head>
@@ -22,7 +25,9 @@
 		<header class="header">
 			<div class="container">
 				<nav class="navbar">
-					<div class="logo">TriTravel</div>
+					<div class="logo">
+						<img src="./assets/tritravel-white.svg" alt="tritravel logo" width="128" />
+					</div>
 					<ul class="navigation-list">
 						<li><a href="#hero">Home</a></li>
 						<li><a href="#our-package">Our Package</a></li>
@@ -35,14 +40,14 @@
 			<div class="hero" id="hero">
 				<div class="container">
 					<h1 class="main-title">Your Trusted Travel Agent</h1>
-					<p class="hero-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, odit?</p>
+					<p class="hero-description">Your happiness is our happiness</p>
 				</div>
 			</div>
 			<div class="container">
 				<div class="about-contact">
 					<div class="about">
 						<img src="./assets/travel1.jpg" alt="A beach in Bali during dusk, with some peoples playing" class="about-img" />
-						<p class="about-caption">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, deserunt!</p>
+						<p class="about-caption">Liburan menjadi lebih menyenangkan dengan TriTravel</p>
 						<div class="about-author">
 							<img src="./assets/avatar.jpg" alt="" class="author-img" />
 							<div class="author-data">
@@ -77,41 +82,30 @@
 					</div>
 					<div class="contact">
 						<h2 class="subsection-title">Contact Us</h2>
-						<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero, officia!</p>
+						<p>Sales akan menghubungi Anda 1x24 jam setelah data anda kami terima</p>
 						<form class="contact-form" name="contact-form" onsubmit="return validateForm()">
 							<div class="form-field">
 								<label for="name" class="input-label">Your name:</label>
-								<input type="text" id="name" name="name" class="input-field"
-									placeholder="First name and last name" />
+								<input type="text" id="name" name="name" class="input-field" placeholder="First name and last name" oninput="return fillInput('name')" />
+								<p class="error-msg" id="name-error">Please fill your name</p>
 							</div>
 							<div class="form-field">
 								<label for="email" class="input-label">Email Address:</label>
-								<input type="text" id="email" name="email" class="input-field"
-									placeholder="example@email.com" />
+								<input type="text" id="email" name="email" class="input-field" placeholder="example@email.com" oninput="return fillInput('email')" />
+								<p class="error-msg" id="email-error">Please fill your email</p>
 							</div>
 							<div class="form-field">
 								<label for="interest" class="input-label">What are you interested in?</label>
-								<select id="interest" name="interest" class="input-field">
-									<option value="option0" selected disabled>Select option</option>
-									<option value="option1">Option 1</option>
-									<option value="option2">Option 2</option>
-									<option value="option3">Option 3</option>
+								<select id="interest" name="interest" class="input-field" oninput="return selectInterest()">
+									<option value="none" selected disabled>Select option</option>
+									<option value="option 1">Option 1</option>
+									<option value="option 2">Option 2</option>
+									<option value="option 3">Option 3</option>
 								</select>
+								<p class="error-msg" id="interest-error">Please select one interest</p>
 							</div>
 							<button type="submit" class="button">Send</button>
 						</form>
-
-						<script>
-							function validateForm() {
-								const name = document.forms['contact-form']['name'].value;
-								const email = document.forms['contact-form']['email'].value;
-								const interest = document.forms['contact-form']['interest'].value;
-
-								console.log(name, email, interest);
-
-								return false;
-							}
-						</script>
 					</div>
 				</div>
 			</div>
@@ -185,15 +179,17 @@
 			</div>
 			<div class="cta" id="call-us">
 				<div class="container">
-					<h2 class="section-title">Closing Headline</h2>
-					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, expedita?</p>
-					<button class="button">Call to Action</button>
+					<h2 class="section-title">Start Your Journey Today</h2>
+					<p style="width: 50%;">Buruan pesan perjalanan Anda dengan kami dan dapatkan potongan harga hingga 15%</p>
+					<button class="button">Book Now</button>
 				</div>
 			</div>
 		</main>
 		<footer class="footer">
 			<div class="container">
-				<div class="logo">TriTravel</div>
+				<div class="logo">
+					<img src="./assets/tritravel-color.svg" alt="tritravel logo" width="192" />
+				</div>
 				<ul class="footer-navigation">
 					<li><a href="#">Terms of Service</a></li>
 					<li><a href="#">Privacy Policy</a></li>
@@ -205,5 +201,6 @@
 		<script>
 			feather.replace();
 		</script>
+		<script src="./js/validation.js"></script>
 	</body>
 </html>
