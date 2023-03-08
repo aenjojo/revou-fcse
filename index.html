@@ -31,39 +31,45 @@
 					<div class="logo">
 						<img src="./assets/tritravel-white.svg" alt="tritravel logo" />
 					</div>
-					<button class="menu-button" id="menu-button" onclick="return btn()">
+					<button class="menu-button" id="menu-button" onclick="toggleMenuButton()">
 						<i data-feather="menu"></i>
 					</button>
 					<ul class="navigation-list" id="menu-list">
-						<li><a href="#hero" onclick="return setTitle(this)">Home</a></li>
-						<li><a href="#our-package" onclick="return setTitle(this)">Our Package</a></li>
-						<li><a href="#call-us" onclick="return setTitle(this)">Call Us</a></li>
+						<li><a href="#hero" onclick="setTitle(this)">Home</a></li>
+						<li><a href="#our-package" onclick="setTitle(this)">Our Package</a></li>
+						<li><a href="#call-us" onclick="setTitle(this)">Call Us</a></li>
 					</ul>
 				</nav>
-				<script>
-					function btn() {
-						document.getElementById('menu-list').classList.toggle('show');
-					}
-				</script>
 			</div>
 		</header>
 		<main class="main-content">
 			<div class="hero" id="hero">
-				<div class="container">
+				<div class="hero-slider" id="hero-slider">
+					<img id="slide1" src="./assets/images/banner1.jpg" alt="" />
+					<img id="slide2" src="./assets/images/banner2.jpg" alt="" />
+					<img id="slide3" src="./assets/images/banner3.jpg" alt="" />
+					<img id="slide4" src="./assets/images/banner4.jpg" alt="" />
+					<img id="slide5" src="./assets/images/banner5.jpg" alt="" />
+					<img id="slide6" src="./assets/images/banner6.jpg" alt="" />
+					<img id="slide7" src="./assets/images/banner1.jpg" alt="" />
+					<img id="slide8" src="./assets/images/banner2.jpg" alt="" />
+				</div>
+				<div class="hero-wrapper">
 					<h1 class="main-title">Your Trusted Travel Agent</h1>
 					<p class="hero-description">Your happiness is our happiness</p>
+					<button class="button" onclick="getStartButton()">Get started!</button>
 				</div>
 			</div>
 			<div class="container">
-				<div class="about-contact">
+				<div class="about-contact" id="about">
 					<div class="about">
-						<img src="./assets/travel1.jpg" alt="A beach in Bali during dusk, with some peoples playing" class="about-img" />
-						<p class="about-caption">Liburan menjadi lebih menyenangkan dengan TriTravel</p>
+						<img src="./assets/images/promotional.jpg" alt="A beach in Bali during dusk, with some peoples playing" class="about-img" />
+						<p class="about-caption">Liburan jadi lebih menyenangkan karena TriTravel memberikan yang terbaik pada pengguna</p>
 						<div class="about-author">
-							<img src="./assets/avatar.jpg" alt="" class="author-img" />
+							<img src="./assets/images/avatar.jpg" alt="" class="author-img" />
 							<div class="author-data">
-								<div class="author-name">Natsuki</div>
-								<div class="author-info">Pelajar, 17</div>
+								<div class="author-name">Jennie Richardson</div>
+								<div class="author-info">Software Engineer, 27</div>
 							</div>
 						</div>
 						<hr class="border" />
@@ -74,19 +80,25 @@
 									<div class="feature-icon">
 										<i data-feather="globe"></i>
 									</div>
-									<div class="feature-description">Perjalanan ke banyak wilayah di dunia</div>
+									<div class="feature-description">Tersedia perjalanan ke banyak tempat destinasi terbaik di dunia</div>
 								</div>
 								<div class="feature-item">
 									<div class="feature-icon">
 										<i data-feather="globe"></i>
 									</div>
-									<div class="feature-description">Pemesanan dan pembayaran yang mudah dan cepat</div>
+									<div class="feature-description">Pemesanan dan pembayaran yang mudah, cepat, dan dapat dilakukan kapan saja dan dimana saja</div>
 								</div>
 								<div class="feature-item">
 									<div class="feature-icon">
 										<i data-feather="globe"></i>
 									</div>
 									<div class="feature-description">Ada tawaran-tawaran menarik yang menanti untuk perjalanan Anda selanjutnya</div>
+								</div>
+								<div class="feature-item">
+									<div class="feature-icon">
+										<i data-feather="globe"></i>
+									</div>
+									<div class="feature-description">Uang kembali hingga 90% jika Anda batal melakukan perjalanan</div>
 								</div>
 							</div>
 						</div>
@@ -97,21 +109,21 @@
 						<form class="contact-form" name="contact-form" onsubmit="return validateForm()">
 							<div class="form-field">
 								<label for="name" class="input-label">Your name:</label>
-								<input type="text" id="name" name="name" class="input-field" placeholder="First name and last name" oninput="return fillInput('name')" />
+								<input type="text" id="name" name="name" class="input-field" placeholder="First name and last name" oninput="fillInput('name')" />
 								<p class="error-msg" id="name-error">Please fill your name</p>
 							</div>
 							<div class="form-field">
 								<label for="email" class="input-label">Email Address:</label>
-								<input type="text" id="email" name="email" class="input-field" placeholder="example@email.com" oninput="return fillInput('email')" />
-								<p class="error-msg" id="email-error">Please fill your email</p>
+								<input type="text" id="email" name="email" class="input-field" placeholder="example@email.com" oninput="fillInput('email')" />
+								<p class="error-msg" id="email-error">Please fill your email with a correct format</p>
 							</div>
 							<div class="form-field">
 								<label for="interest" class="input-label">What are you interested in?</label>
-								<select id="interest" name="interest" class="input-field" oninput="return selectInterest()">
+								<select id="interest" name="interest" class="input-field" oninput="selectInterest()">
 									<option value="none" selected disabled>Select option</option>
-									<option value="option 1">Option 1</option>
-									<option value="option 2">Option 2</option>
-									<option value="option 3">Option 3</option>
+									<option value="option 1">Destinasi Pantai (Swimming/Surfing)</option>
+									<option value="option 2">Destinasi Gunung (Hiking)</option>
+									<option value="option 3">Destinasi Hutan (Camping/Fishing)</option>
 								</select>
 								<p class="error-msg" id="interest-error">Please select one interest</p>
 							</div>
@@ -133,8 +145,8 @@
 								<i data-feather="compass"></i>
 							</div>
 							<div class="package-content">
-								<h3>Nama kota</h3>
-								<p>Travel dan wisata di Bali. Kunjungi cagar budaya dan kuliner yang menarik</p>
+								<h3>Bali</h3>
+								<p>Kunjungi cagar budaya, kuliner, pantai, dan tempat wisata yang menarik lainnya di Bali</p>
 							</div>
 						</div>
 						<div class="package-item">
@@ -142,8 +154,8 @@
 								<i data-feather="compass"></i>
 							</div>
 							<div class="package-content">
-								<h3>Nama kota</h3>
-								<p>Travel dan wisata di Bali. Kunjungi cagar budaya dan kuliner yang menarik</p>
+								<h3>Miami</h3>
+								<p>Kunjungi cagar alam buaya, kuliner, pantai, dan tempat wisata yang menarik lainnya di Miami</p>
 							</div>
 						</div>
 						<div class="package-item">
@@ -151,8 +163,8 @@
 								<i data-feather="compass"></i>
 							</div>
 							<div class="package-content">
-								<h3>Nama kota</h3>
-								<p>Travel dan wisata di Bali. Kunjungi cagar budaya dan kuliner yang menarik</p>
+								<h3>Moscow</h3>
+								<p>Kunjungi cagar budaya, bangunan bersejarah, dan tempat wisata yang menarik lainnya di Moscow</p>
 							</div>
 						</div>
 					</div>
@@ -163,8 +175,8 @@
 								<i data-feather="star"></i>
 							</div>
 							<div class="package-content">
-								<h3>Jenis Wisata</h3>
-								<p>Travel dan wisata di Bali. Kunjungi cagar budaya dan kuliner yang menarik</p>
+								<h3>Destinasi Gunung</h3>
+								<p>Lakukan hiking ke atas gunung atau camping di atas gunung</p>
 							</div>
 						</div>
 						<div class="package-item">
@@ -172,8 +184,8 @@
 								<i data-feather="star"></i>
 							</div>
 							<div class="package-content">
-								<h3>Jenis Wisata</h3>
-								<p>Travel dan wisata di Bali. Kunjungi cagar budaya dan kuliner yang menarik</p>
+								<h3>Pantai</h3>
+								<p>Lakukan swimming di sekitar pantai atau surfing di ombak</p>
 							</div>
 						</div>
 						<div class="package-item">
@@ -181,8 +193,8 @@
 								<i data-feather="star"></i>
 							</div>
 							<div class="package-content">
-								<h3>Jenis Wisata</h3>
-								<p>Travel dan wisata di Bali. Kunjungi cagar budaya dan kuliner yang menarik</p>
+								<h3>Hutan</h3>
+								<p>Lakukan camping bersama hantu hutan, seperti genderuwo</p>
 							</div>
 						</div>
 					</div>
@@ -190,9 +202,9 @@
 			</div>
 			<div class="cta" id="call-us">
 				<div class="container">
-					<h2 class="section-title">Start Your Journey Today</h2>
-					<p>Buruan pesan perjalanan Anda dengan kami dan dapatkan potongan harga hingga 15%</p>
-					<button class="button">Book Now</button>
+					<h2 class="section-title">Talk with Us</h2>
+					<p>Ingin memesan perjalanan? Ada kendala yang perlu dibantu? Silakan hubungi kami dengan menekan tombol di bawah ini</p>
+					<button class="button">Hubungi Kami</button>
 				</div>
 			</div>
 		</main>
@@ -213,6 +225,7 @@
 			feather.replace();
 		</script>
 		<script src="./js/validation.js"></script>
-		<script src="./js/setTitle.js"></script>
+		<script src="./js/script.js"></script>
+		<script src="./js/slideShow.js"></script>
 	</body>
 </html>
