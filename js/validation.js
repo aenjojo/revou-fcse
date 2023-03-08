@@ -3,13 +3,8 @@ function validateForm() {
 	const email = document.forms['contact-form']['email'].value;
 	const interest = document.forms['contact-form']['interest'].value;
 
-	if (name && email && interest !== 'none') {
-		alert(`Data anda telah sukses terkirim, ${name}`);
+	const isEmail = email.match(/[\w.]+@\w+.\w{2,3}(.\w{2,})?/);
 
-		return false;
-	}
-
-	
 	if (!name) {
 		const errName = document.getElementById('name-error');
 
@@ -17,7 +12,7 @@ function validateForm() {
 		errName.style.visibility = 'visible';
 	}
 
-	if (!email) {
+	if ((email && !isEmail) || !email) {
 		const errEmail = document.getElementById('email-error');
 
 		errEmail.style.display = 'block';
@@ -29,6 +24,13 @@ function validateForm() {
 
 		errInterest.style.display = 'block';
 		errInterest.style.visibility = 'visible';
+	}
+
+
+	if (name && email && isEmail && interest !== 'none') {
+		alert(`Data anda telah sukses terkirim, ${name}`);
+
+		return false;
 	}
 
 	return false;
