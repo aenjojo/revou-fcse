@@ -3,6 +3,13 @@ function validateForm() {
 	const email = document.forms['contact-form']['email'].value;
 	const interest = document.forms['contact-form']['interest'].value;
 
+	if (name && email && interest !== 'none') {
+		alert(`Data anda telah sukses terkirim, ${name}`);
+
+		return false;
+	}
+
+	
 	if (!name) {
 		const errName = document.getElementById('name-error');
 
